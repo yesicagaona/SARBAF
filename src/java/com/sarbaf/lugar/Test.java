@@ -17,11 +17,11 @@ public class Test {
         Lugar lugar = new Lugar();
         LugarBean lugarbean = new LugarBean();
 
-        lugarbean.setDescripcion("Lugar 1");
+        lugarbean.setDescripcion("Lugar 3");
         lugarbean.setFecha("02/10/13");
-        lugarbean.setHora("09:14 pm");
-        lugarbean.setDireccion("dir 1");
-        lugarbean.setCoordenada("coordenadas1");
+        lugarbean.setHora("10:14 am");
+        lugarbean.setDireccion("dir 3");
+        lugarbean.setCoordenada("coordenadas3");
 
         lugar.ingresarLugar(lugarbean);
     }
