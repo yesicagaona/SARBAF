@@ -7,8 +7,6 @@ package com.sarbaf.conn;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -31,9 +29,9 @@ public class ConectarDB {
             //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
             url = "jdbc:mysql://" + servidor + "/" + database;
             conexion = (Connection) DriverManager.getConnection(url, usuario, password);
-            System.out.println("Conexion a Base de Datos " + url + " . . . . .Ok");
+            System.out.println("Conexion a Base de Datos " + url + " . . . . Ok");
         } catch (SQLException ex) {
-            System.out.println(ex);
+            System.out.println("|----> Error en ConectarDB.conectar() \n"+ex);
         } catch (ClassNotFoundException ex) {
             System.out.println(ex);
         }
@@ -50,14 +48,13 @@ public class ConectarDB {
         return conexion;
     }
         
-    public Connection cerrarConexion() {
+    public void cerrarConexion() {
         try {
             conexion.close();
-            System.out.println("Cerrando conexion a " + url + " . . . . . Ok");
+            System.out.println("Cerrando conexion a " + url + " . . . . Ok");
         } catch (SQLException ex) {
-            System.out.println(ex);
+            System.out.println("|----> Error en ConectarDB.cerrarConexion() \n"+ex);
         }
         conexion = null;
-        return conexion;
     }
 }

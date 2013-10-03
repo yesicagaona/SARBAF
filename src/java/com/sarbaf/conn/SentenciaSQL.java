@@ -16,46 +16,47 @@ import java.util.logging.Logger;
  */
 public class SentenciaSQL {
 
-    private Statement sentencia;
+    private Statement st;
     private ConectarDB conn;
 
     public SentenciaSQL() {
-        conn=new ConectarDB();
+        st = null;
+        conn = new ConectarDB();
         conn.conectar();
     }
 
-    public void ejecutarSql(String SQL) {
+    public int ejecutarSql(String SQL) {
         try {
-            //conn.conectar();
-            sentencia = (Statement) conn.getConexion().createStatement();
-            sentencia.executeUpdate(SQL);
-            //conn.cerrarConexion();
+            st = (Statement) conn.getConexion().createStatement();
+            return st.executeUpdate(SQL);
         } catch (SQLException ex) {
-            Logger.getLogger(SentenciaSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("|----> Error en SentenciaSQL.ejecutarSql() \n"+ex);
+            return -1;
         }
     }
 
     public ResultSet ejecutarSelect(String SQL) {
         try {
             //conn.conectar();
-            sentencia = (Statement) conn.getConexion().createStatement();
-            return sentencia.executeQuery(SQL);
+            st = (Statement) conn.getConexion().createStatement();
+            return st.executeQuery(SQL);
             //conn.cerrarConexion();
         } catch (SQLException ex) {
-            Logger.getLogger(SentenciaSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("|----> Error en SentenciaSQL.ejecutarSelect() \n"+ex);
         }
         return null;
     }
-    
-    public void closeSentencia(){
+
+    public void closeSentencia() {
         try {
-            sentencia.close();
+            st.close();
+            System.out.println("|----> Cerrando Statement . . . . OK");
         } catch (SQLException ex) {
-            Logger.getLogger(SentenciaSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("|----> Error en SentenciaSQL.closeSentencia() \n"+ex);
         }
     }
-    
-    public void closeConexion(){
+
+    public void closeConexion() {
         conn.cerrarConexion();
     }
 }

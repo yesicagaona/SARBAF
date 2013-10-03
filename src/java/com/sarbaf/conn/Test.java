@@ -20,22 +20,6 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SentenciaSQL st=new SentenciaSQL();
-        ResultSet ejecutarSelect = st.ejecutarSelect("select * from users");
-        if(ejecutarSelect!=null){
-            try {
-                System.out.println("|--------------------------------------|");
-                while (ejecutarSelect.next()) {
-                    System.out.println("|---> Nombre: "+ejecutarSelect.getObject("nombres")+" "+
-                            ejecutarSelect.getObject("apellidos"));
-                }
-                System.out.println("|--------------------------------------|");
-                ejecutarSelect.close();
-                st.closeSentencia();
-                st.closeConexion();
-            } catch (SQLException ex) {
-                Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
     }
 }
