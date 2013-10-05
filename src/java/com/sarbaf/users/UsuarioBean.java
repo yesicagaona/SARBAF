@@ -10,37 +10,22 @@ package com.sarbaf.users;
  */
 public class UsuarioBean {
 
-    private String nombres;
-    private String apellidos;
+    private String nombre_completo;
     private String password;
-    private String email;
+    private String correo_electronico;
 
     /**
-     * @return the nombres
+     * @return the nombre_completo
      */
-    public String getNombres() {
-        return nombres;
+    public String getNombre_completo() {
+        return nombre_completo;
     }
 
     /**
-     * @param nombres the nombres to set
+     * @param nombre_completo the nombre_completo to set
      */
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    /**
-     * @return the apellidos
-     */
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    /**
-     * @param apellidos the apellidos to set
-     */
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombre_completo(String nombre_completo) {
+        this.nombre_completo = nombre_completo;
     }
 
     /**
@@ -58,16 +43,16 @@ public class UsuarioBean {
     }
 
     /**
-     * @return the email
+     * @return the correo_electronico
      */
-    public String getEmail() {
-        return email;
+    public String getCorreo_electronico() {
+        return correo_electronico;
     }
 
     /**
-     * @param email the email to set
+     * @param correo_electronico the correo_electronico to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreo_electronico(String correo_electronico) {
+        this.correo_electronico = correo_electronico;
     }
 }
