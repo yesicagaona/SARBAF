@@ -20,7 +20,7 @@ public class Lugar {
 
     public void ingresarLugar(LugarBean lugar) {
         sent_sql = new SentenciaSQL();
-
+        
         int resultado = sent_sql.ejecutarSql("insert into lugar (descripcion,fecha,hora,direccion,coordenada)"
                 + " values ('" + lugar.getDescripcion() + "','" + lugar.getFecha()
                 + "','" + lugar.getHora() + "','" + lugar.getDireccion() + "','" + lugar.getCoordenada() + "')");
@@ -28,7 +28,6 @@ public class Lugar {
         sent_sql.closeConexion();
         if (resultado == 1) {
             System.out.println("|----> El lugar ha sido registrado . . . . OK");
-//            System.out.println("|----> Elemento insertado en la BD . . . . . OK");
         } else if (resultado == 0) {
             System.out.println("|----> El lugar no ha sido registrado . . . . .");
         } else {
