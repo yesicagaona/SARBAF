@@ -26,12 +26,16 @@ public class SentenciaSQL {
     }
 
     public int ejecutarSql(String SQL) {
-        try {
-            st = (Statement) conn.getConexion().createStatement();
-            return st.executeUpdate(SQL);
-        } catch (SQLException ex) {
-            System.out.println("|----> Error en SentenciaSQL.ejecutarSql() \n"+ex);
-            return -1;
+        if(conn.getConexion()!=null) {
+            try {
+                st = (Statement) conn.getConexion().createStatement();
+                return st.executeUpdate(SQL);
+            } catch (SQLException ex) {
+                System.out.println("|----> Error en SentenciaSQL.ejecutarSql() \n"+ex);
+                return -1;
+            }
+        }else{
+            return 0;
         }
     }
 

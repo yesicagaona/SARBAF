@@ -30,10 +30,11 @@ public class ConectarDB {
             url = "jdbc:mysql://" + servidor + "/" + database;
             conexion = (Connection) DriverManager.getConnection(url, usuario, password);
             System.out.println("Conexion a Base de Datos " + url + " . . . . Ok");
+//            return true;
         } catch (SQLException ex) {
-            System.out.println("|----> Error en ConectarDB.conectar() \n"+ex);
+            System.out.println("|----> Error1 en ConectarDB.conectar() \n"+ex);
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex);
+            System.out.println("|----> Error2 en ConectarDB.conectar() \n"+ex);
         }
     }
 
